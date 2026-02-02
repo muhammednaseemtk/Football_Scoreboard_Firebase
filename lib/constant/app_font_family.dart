@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:football_scoreboard/constant/app_color.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class AppFontFamily {
+  static final TextStyle heading = GoogleFonts.orbitron(
+    fontSize: 60,
+    color: AppColor.white,
+    fontWeight: FontWeight.bold,
+  );
+  static final TextStyle scdheading = GoogleFonts.montserrat(
+    fontSize: 15,
+    color: AppColor.accentGreen,
+    letterSpacing: 4,
+    fontWeight: FontWeight.bold,
+  );
+  static final TextStyle txtField = GoogleFonts.montserrat(
+    fontSize: 14,
+    letterSpacing: 2,
+    color: AppColor.shaded,
+    fontWeight: FontWeight.bold,
+  );
+  static final TextStyle btn = GoogleFonts.montserrat(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+  static final TextStyle txt = GoogleFonts.poppins(color: AppColor.shaded);
+  static final TextStyle rgtbtn = GoogleFonts.poppins(color: AppColor.white);
+}

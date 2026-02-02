@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "198510366037",
+    "project_id": "football-scoreboard-11900",
+    "storage_bucket": "football-scoreboard-11900.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198510366037:android:2da53c36283f0ac4e873dc",
+        "android_client_info": {
+          "package_name": "com.example.football_scoreboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC5pz3kwOmAp7KCSgLkISoAfIEi7qRO3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
