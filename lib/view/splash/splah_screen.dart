@@ -32,6 +32,8 @@ class _SplahScreenState extends State<SplahScreen> {
     'asset/image/messi.png',
     'asset/image/neymar.jpg',
     'asset/image/ronaldo.jpg',
+    'asset/image/maradona.jpg',
+    'asset/image/ronaldinho.jpg',
   ];
 
   @override
@@ -80,9 +82,9 @@ class _SplahScreenState extends State<SplahScreen> {
 
                     Text(
                       'FOOTBALL SCOREBOARD',
-                      style: GoogleFonts.montserrat(
+                      style: GoogleFonts.playpenSans(
                         fontSize: 19,
-                        color: AppColor.accentGreen,
+                        color: AppColor.white,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 2,
                       ),
@@ -94,7 +96,7 @@ class _SplahScreenState extends State<SplahScreen> {
                     Text(
                       'Loading....',
                       style: GoogleFonts.montserrat(
-                        color: AppColor.accentGreen,
+                        color: AppColor.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
