@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
+import 'package:football_scoreboard/view/splash/auth_wrapper.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:new_loading_indicator/new_loading_indicator.dart';
 
@@ -24,7 +25,7 @@ class _SplahScreenState extends State<SplahScreen> {
     await Future.delayed(Duration(seconds: 5));
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
+      MaterialPageRoute(builder: (context) => AuthWrapper()),
     );
   }
 

@@ -6,12 +6,10 @@ class UserService {
     'users',
   );
 
-  //Create User
   Future<void> crUser(UserModel user) async {
     await users.doc(user.uid).set(user.toMap());
   }
 
-  //Get User
   Future<UserModel?> getUser(String uid) async {
     final doc = await users.doc(uid).get();
 

@@ -8,22 +8,43 @@ class AppFontFamily {
     color: AppColor.white,
     fontWeight: FontWeight.bold,
   );
+
   static final TextStyle scdheading = GoogleFonts.montserrat(
     fontSize: 15,
     color: AppColor.accentGreen,
     letterSpacing: 4,
     fontWeight: FontWeight.bold,
   );
+
   static final TextStyle txtField = GoogleFonts.montserrat(
     fontSize: 14,
     letterSpacing: 2,
     color: AppColor.shaded,
     fontWeight: FontWeight.bold,
   );
+
   static final TextStyle btn = GoogleFonts.montserrat(
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
+
   static final TextStyle txt = GoogleFonts.poppins(color: AppColor.shaded);
+
   static final TextStyle rgtbtn = GoogleFonts.poppins(color: AppColor.white);
+
+  static final TextStyle email = GoogleFonts.outfit(
+    color: AppColor.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 15
+  );
+
+  static final TextStyle name = GoogleFonts.poppins(
+    color: AppColor.white,
+    fontWeight: FontWeight.w500
+  );
+
+  static final TextStyle txt1 = GoogleFonts.outfit(
+    color: AppColor.white,
+    fontSize: 28
+  );
 }
