@@ -21,7 +21,7 @@ class _SplahScreenState extends State<SplahScreen> {
   }
 
   Future<void> goLogin() async {
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 5));
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
