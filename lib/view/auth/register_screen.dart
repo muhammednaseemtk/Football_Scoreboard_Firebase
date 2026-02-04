@@ -8,7 +8,7 @@ import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/model/user_model.dart';
 import 'package:football_scoreboard/service/auth_service.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
-import 'package:football_scoreboard/view/home/home_screen.dart';
+import 'package:football_scoreboard/view/splash/auth_wrapper.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -89,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
 
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(builder: (context) => AuthWrapper()),
                         );
                       } catch (e) {
                         Fluttertoast.showToast(msg: e.toString());

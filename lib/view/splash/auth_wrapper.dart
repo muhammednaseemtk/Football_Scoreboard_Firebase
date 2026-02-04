@@ -11,6 +11,7 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
@@ -24,12 +25,16 @@ class AuthWrapper extends StatelessWidget {
         }
 
         if (snapshot.hasData) {
+
           final user = snapshot.data!;
 
           return Consumer<UserController>(
             builder: (context, userController, child) {
+
               if (userController.user == null) {
+
                 userController.loaddUser(user.uid);
+
                 return Scaffold(
                   backgroundColor: AppColor.darkGrey,
                   body: Center(

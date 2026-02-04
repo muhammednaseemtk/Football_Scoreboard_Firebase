@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/view/home/widget/custom_drawer.dart';
-import 'package:football_scoreboard/view/leagues/leagues_screen.dart';
 import 'package:football_scoreboard/view/today/today_screen.dart';
 import 'package:football_scoreboard/view/upcoming/upcoming_screen.dart';
 
@@ -24,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -78,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen>
       
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 70),
-            child: Text('Football Live Scores', style: AppFontFamily.txt1),
+            child: Text('Football Scores', style: AppFontFamily.txt1),
           ),
       
-          Text('POWERED BY FIREBASE', style: AppFontFamily.txt),
+          Text('Instant football score updates', style: AppFontFamily.txt),
       
           SizedBox(height: 15),
       
@@ -93,7 +92,6 @@ class _HomeScreenState extends State<HomeScreen>
             tabs: const [
               Tab(text: 'Today'),
               Tab(text: 'Upcoming'),
-              Tab(text: 'Leagues'),
             ],
           ),
           Expanded(
@@ -102,7 +100,6 @@ class _HomeScreenState extends State<HomeScreen>
               children: const [
                 TodayScreen(),
                 UpcomingScreen(),
-                LeaguesScreen(),
               ],
             ),
           ),

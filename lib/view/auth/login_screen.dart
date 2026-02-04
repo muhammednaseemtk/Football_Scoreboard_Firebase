@@ -7,7 +7,7 @@ import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/service/auth_service.dart';
 import 'package:football_scoreboard/view/auth/register_screen.dart';
-import 'package:football_scoreboard/view/home/home_screen.dart';
+import 'package:football_scoreboard/view/splash/auth_wrapper.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
 
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        MaterialPageRoute(builder: (context) => AuthWrapper()),
                       );
 
                       Fluttertoast.showToast(

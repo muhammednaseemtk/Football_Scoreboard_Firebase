@@ -6,6 +6,17 @@ class UpcomingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: AppColor.darkGrey);
+    return Scaffold(
+      backgroundColor: AppColor.darkGrey,
+
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 70),
+        child: FloatingActionButton(
+          splashColor: AppColor.shaded,
+          backgroundColor: AppColor.black70,
+          foregroundColor: AppColor.accentGreen,
+          onPressed: (){},child: Icon(Icons.add,size: 30,),),
+      ),
+      );
   }
 }
