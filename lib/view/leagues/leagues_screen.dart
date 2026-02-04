@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
+import 'package:football_scoreboard/constant/app_font_family.dart';
 
 class LeaguesScreen extends StatelessWidget {
   const LeaguesScreen({super.key});
@@ -9,13 +10,25 @@ class LeaguesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.darkGrey,
 
+      appBar: AppBar(
+        backgroundColor: AppColor.darkGrey,
+        foregroundColor: AppColor.white,
+        title: Text('League', style: AppFontFamily.txt1),
+        centerTitle: true,
+      ),
+
+      body: Column(children: [
+        ],
+      ),
+
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28,vertical: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 25),
         child: FloatingActionButton(
-          splashColor: AppColor.shaded,
-          backgroundColor: AppColor.black70,
-          foregroundColor: AppColor.accentGreen,
-          onPressed: (){},child: Icon(Icons.add,size: 30,),),
+          backgroundColor: AppColor.accentGreen,
+          foregroundColor: AppColor.white,
+          onPressed: () {},
+          child: Icon(Icons.add, size: 30),
+        ),
       ),
     );
   }
