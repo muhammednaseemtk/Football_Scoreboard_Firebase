@@ -10,7 +10,7 @@ class UpcomingScreen extends StatelessWidget {
       backgroundColor: AppColor.darkGrey,
 
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 70),
+        padding: const EdgeInsets.symmetric(horizontal: 28,vertical: 20),
         child: FloatingActionButton(
           splashColor: AppColor.shaded,
           backgroundColor: AppColor.black70,

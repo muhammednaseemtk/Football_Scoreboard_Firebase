@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:football_scoreboard/controller/main_screen_controller.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
 import 'package:football_scoreboard/view/auth/register_screen.dart';
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => UserController()),
+    ChangeNotifierProvider(create: (_) => MainScreenController()),
   ], child: MyApp()));
 }
 class MyApp extends StatelessWidget {

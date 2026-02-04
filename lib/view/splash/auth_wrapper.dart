@@ -4,6 +4,7 @@ import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
 import 'package:football_scoreboard/view/home/home_screen.dart';
+import 'package:football_scoreboard/view/home/widget/main_screen.dart';
 import 'package:provider/provider.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -44,7 +45,7 @@ class AuthWrapper extends StatelessWidget {
                   ),
                 );
               }
-              return HomeScreen();
+              return MainScreen();
             },
           );
         }

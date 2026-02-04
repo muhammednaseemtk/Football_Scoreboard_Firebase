@@ -10,7 +10,7 @@ class LeaguesScreen extends StatelessWidget {
       backgroundColor: AppColor.darkGrey,
 
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 70),
+        padding: const EdgeInsets.symmetric(horizontal: 28,vertical: 25),
         child: FloatingActionButton(
           splashColor: AppColor.shaded,
           backgroundColor: AppColor.black70,
