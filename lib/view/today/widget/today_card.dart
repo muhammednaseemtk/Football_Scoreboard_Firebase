@@ -59,7 +59,7 @@ class TodayCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 34,
-                      backgroundColor: Colors.grey.shade800,
+                      backgroundColor: AppColor.shaded,
                     ),
 
                     SizedBox(height: 12),
