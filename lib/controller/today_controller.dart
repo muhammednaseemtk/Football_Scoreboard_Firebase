@@ -8,7 +8,7 @@ class TodayController with ChangeNotifier {
   DateTime selectedDate = DateTime.now();
 
   void changeDate(DateTime date) {
-    selectedDate = DateTime(date.year,date.month,date.day);
+    selectedDate = DateTime(date.year, date.month, date.day);
     notifyListeners();
   }
 

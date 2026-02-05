@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoreboard/common/common_date_picker.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/view/upcoming/add_upcoming.dart';
 
@@ -13,10 +12,7 @@ class UpcomingScreen extends StatelessWidget {
 
       body: Column(
         children: [
-          CommonDatePicker(),
-          Column(children: [
-            ],
-          ),
+          
         ],
       ),
 

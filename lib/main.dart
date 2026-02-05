@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:football_scoreboard/controller/main_screen_controller.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
+import 'package:football_scoreboard/view/home/widget/main_screen.dart';
 import 'package:football_scoreboard/view/today/add_today.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AddToday(),
+      home: MainScreen(),
     );
   }
 }

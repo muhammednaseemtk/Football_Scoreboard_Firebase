@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoreboard/common/common_date_picker.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/view/today/add_today.dart';
 import 'package:football_scoreboard/view/today/widget/today_card.dart';
@@ -14,8 +13,7 @@ class TodayScreen extends StatelessWidget {
 
       body: Column(
         children: [
-          CommonDatePicker(),
-          Column(children: [TodayCard()]),
+          TodayCard(),
         ],
       ),
 
