@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/controller/main_screen_controller.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
+import 'package:football_scoreboard/controller/upcoming_controller.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/view/home/widget/main_screen.dart';
+import 'package:football_scoreboard/view/splash/splah_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -13,6 +15,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => UserController()),
     ChangeNotifierProvider(create: (_) => MainScreenController()),
     ChangeNotifierProvider(create: (_) => TodayController()),
+    ChangeNotifierProvider(create: (_) => UpcomingController()),
   ], child: MyApp()));
 }
 class MyApp extends StatelessWidget {
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: SplahScreen(),
     );
   }
 }

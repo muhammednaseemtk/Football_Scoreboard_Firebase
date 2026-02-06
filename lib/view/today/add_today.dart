@@ -104,7 +104,7 @@ class AddToday extends StatelessWidget {
                         time: timeController.text.trim(),
                       );
 
-                      await controller.addMatch(model);
+                      await controller.addTodayMatch(model);
 
                       Navigator.pop(context);
                     },

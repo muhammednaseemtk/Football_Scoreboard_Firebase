@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
-import 'package:football_scoreboard/model/today_model.dart';
+import 'package:football_scoreboard/controller/upcoming_controller.dart';
+import 'package:football_scoreboard/model/upcoming_model.dart';
 import 'package:provider/provider.dart';
 
-class TodayCard extends StatelessWidget {
-  final TodayModel model;
+class UpcomingCard extends StatelessWidget {
+  final UpcomingModel model;
 
-  const TodayCard({super.key, required this.model});
+  const UpcomingCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +49,15 @@ class TodayCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
 
-                  child: Text('Today', style: AppFontFamily.name),
+                  child: Text('Upcoming', style: AppFontFamily.name),
                 ),
 
-                Consumer<TodayController>(
+                Consumer<UpcomingController>(
                   builder: (context, controller, child) {
                     return IconButton(
                       onPressed: () {
                         if (model.id != null) {
-                          controller.deleteTodayMatch(model.id!);
+                          controller.deleteUpcomingMatch(model.id!);
                         }
                       },
                       icon: Icon(

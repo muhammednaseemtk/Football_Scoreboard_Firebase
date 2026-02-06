@@ -9,12 +9,12 @@ class TodayController with ChangeNotifier {
     return todayService.getTodayMatch();
   }
 
-  Future<void> addMatch(TodayModel model) async {
+  Future<void> addTodayMatch(TodayModel model) async {
     await todayService.addTodayMatch(model);
     notifyListeners();
   }
 
-  Future<void> deleteMatch(String id) async {
+  Future<void> deleteTodayMatch(String id) async {
     await todayService.deleteTodayMatch(id);
     notifyListeners();
   }
