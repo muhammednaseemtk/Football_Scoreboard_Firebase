@@ -47,4 +47,9 @@ class AppFontFamily {
     color: AppColor.white,
     fontSize: 28
   );
+
+  static final TextStyle txt2 = GoogleFonts.outfit(
+    color: AppColor.accentGreen,
+    fontSize: 25,
+  );
 }

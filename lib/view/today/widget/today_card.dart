@@ -1,13 +1,21 @@
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
+import 'package:football_scoreboard/constant/app_font_family.dart';
+import 'package:football_scoreboard/controller/today_controller.dart';
+import 'package:football_scoreboard/model/today_model.dart';
+import 'package:provider/provider.dart';
 
 class TodayCard extends StatelessWidget {
-  const TodayCard({super.key});
+  final TodayModel model;
+
+  const TodayCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(9.0),
+
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -15,6 +23,7 @@ class TodayCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
           color: AppColor.black20,
         ),
+
         child: Column(
           children: [
             Row(
@@ -38,14 +47,24 @@ class TodayCard extends StatelessWidget {
                     color: AppColor.shaded,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text(
-                    'Today',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+
+                  child: Text('Today', style: AppFontFamily.name),
+                ),
+
+                Consumer<TodayController>(
+                  builder: (context, controller, child) {
+                    return IconButton(
+                      onPressed: () {
+                        if (model.id != null) {
+                          controller.deleteMatch(model.id!);
+                        }
+                      },
+                      icon: Icon(
+                        EneftyIcons.close_outline,
+                        color: AppColor.accentGreen,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -59,32 +78,19 @@ class TodayCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 34,
-                      backgroundColor: AppColor.shaded,
+                      backgroundColor: AppColor.accentGreen,
+                      child: Icon(Icons.sports_soccer_sharp,color: AppColor.white,),
                     ),
 
                     SizedBox(height: 12),
 
-                    Text(
-                      'FCB',
-                      style: TextStyle(
-                        color: AppColor.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    Text(model.teamA ?? '', style: AppFontFamily.name),
                   ],
                 ),
 
                 Column(
                   children: [
-                    Text(
-                      "20:30",
-                      style: TextStyle(
-                        color: AppColor.accentGreen,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text(model.time ?? '', style: AppFontFamily.txt2),
 
                     SizedBox(height: 6),
 
@@ -103,19 +109,13 @@ class TodayCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 34,
-                      backgroundColor: AppColor.shaded,
+                      backgroundColor: AppColor.accentGreen,
+                      child: Icon(Icons.sports_soccer_sharp,color: AppColor.white,),
                     ),
 
                     SizedBox(height: 12),
 
-                    Text(
-                      "Liverpool",
-                      style: TextStyle(
-                        color: AppColor.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    Text(model.teamB ?? '', style: AppFontFamily.name),
                   ],
                 ),
               ],

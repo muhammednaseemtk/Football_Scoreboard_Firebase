@@ -1,18 +1,21 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:football_scoreboard/model/today_model.dart';
 import 'package:football_scoreboard/service/today_service.dart';
 
 class TodayController with ChangeNotifier {
   final TodayService todayService = TodayService();
 
-  DateTime selectedDate = DateTime.now();
+  Future<List<TodayModel>> get todayMaches {
+    return todayService.getTodayMatch();
+  }
 
-  void changeDate(DateTime date) {
-    selectedDate = DateTime(date.year, date.month, date.day);
+  Future<void> addMatch(TodayModel model) async {
+    await todayService.addTodayMatch(model);
     notifyListeners();
   }
 
-  Stream<List<TodayModel>> get todayMatches {
-    return todayService.getTodayMatch(selectedDate);
+  Future<void> deleteMatch(String id) async {
+    await todayService.deleteTodayMatch(id);
+    notifyListeners();
   }
 }

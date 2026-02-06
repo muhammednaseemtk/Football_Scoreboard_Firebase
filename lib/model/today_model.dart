@@ -1,13 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class TodayModel {
   final String? id;
   final String? teamA;
   final String? teamB;
   final String? time;
-  final DateTime? date;
+  final String? imageA;
+  final String? imageB;
 
-  TodayModel({this.id, this.teamA, this.teamB, this.time, this.date});
+  TodayModel({
+    this.id,
+    this.teamA,
+    this.teamB,
+    this.time,
+    this.imageA,
+    this.imageB,
+  });
 
   factory TodayModel.fromMap(Map<String, dynamic> map, String id) {
     return TodayModel(
@@ -15,7 +21,8 @@ class TodayModel {
       teamA: map['teamA'],
       teamB: map['teamB'],
       time: map['time'],
-      date: (map['date'] as Timestamp).toDate(),
+      imageA: map['imageA'],
+      imageB: map['imageB'],
     );
   }
 
@@ -24,7 +31,8 @@ class TodayModel {
       'teamA': teamA,
       'teamB': teamB,
       'time': time,
-      'date': date != null ? Timestamp.fromDate(date!) : Timestamp.now(),
+      'imageA': imageA,
+      'imageB': imageB,
     };
   }
 }

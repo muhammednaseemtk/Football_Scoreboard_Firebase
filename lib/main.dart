@@ -4,7 +4,6 @@ import 'package:football_scoreboard/controller/main_screen_controller.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
 import 'package:football_scoreboard/view/home/widget/main_screen.dart';
-import 'package:football_scoreboard/view/today/add_today.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
