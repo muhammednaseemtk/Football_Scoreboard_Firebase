@@ -7,6 +7,7 @@ import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/service/auth_service.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
 import 'package:football_scoreboard/view/home/widget/drawer_items.dart';
+import 'package:football_scoreboard/view/notification/notification_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -50,7 +51,12 @@ class CustomDrawer extends StatelessWidget {
           DrawerItems(
             icon: EneftyIcons.notification_outline,
             title: 'Notification',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationScreen()),
+              );
+            },
           ),
 
           DrawerItems(
