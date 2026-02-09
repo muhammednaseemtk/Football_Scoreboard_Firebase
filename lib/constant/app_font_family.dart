@@ -52,4 +52,12 @@ class AppFontFamily {
     color: AppColor.accentGreen,
     fontSize: 25,
   );
+
+  static final TextStyle txt3 = GoogleFonts.poppins(color: AppColor.shaded,fontSize: 13);
+
+  static final TextStyle txt4 = GoogleFonts.bebasNeue(
+    letterSpacing: 1,
+    color: AppColor.white,
+    fontSize: 20
+  );
 }

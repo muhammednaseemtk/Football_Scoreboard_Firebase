@@ -3,9 +3,7 @@ import 'package:football_scoreboard/common/common_button.dart';
 import 'package:football_scoreboard/common/common_textfield.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
-import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
-import 'package:football_scoreboard/model/today_model.dart';
 import 'package:football_scoreboard/model/upcoming_model.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +21,7 @@ class AddUpcoming extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.darkGrey,
         foregroundColor: AppColor.white,
-        title: Text('Upcoming', style: AppFontFamily.txt1),
+        title: Text('Add Upcoming', style: AppFontFamily.txt1),
         centerTitle: true,
       ),
 

@@ -2,7 +2,6 @@ import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
-import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
 import 'package:football_scoreboard/model/upcoming_model.dart';
 import 'package:provider/provider.dart';
@@ -15,14 +14,19 @@ class UpcomingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(9.0),
+      padding: const EdgeInsets.all(10.0),
 
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: AppColor.shaded, width: 1),
-          borderRadius: BorderRadius.circular(24),
-          color: AppColor.black20,
+         borderRadius: BorderRadius.circular(24),
+          color: AppColor.black90,
+          boxShadow: [
+          BoxShadow(
+            color: AppColor.black60,
+            blurRadius: 20,
+          ),
+        ],
         ),
 
         child: Column(
@@ -30,6 +34,7 @@ class UpcomingCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                
                 Text(
                   'MATCHDAY',
                   style: TextStyle(

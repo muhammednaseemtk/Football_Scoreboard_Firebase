@@ -3,12 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
-import 'package:football_scoreboard/controller/notification_controller.dart';
 import 'package:football_scoreboard/view/home/widget/custom_drawer.dart';
 import 'package:football_scoreboard/view/notification/notification_screen.dart';
 import 'package:football_scoreboard/view/today/today_screen.dart';
 import 'package:football_scoreboard/view/upcoming/upcoming_screen.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,10 +25,6 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     tabController = TabController(length: 2, vsync: this);
-
-    Future.microtask((){
-      context.read<NotificationController>().initNotifications();
-    });
   }
 
   @override

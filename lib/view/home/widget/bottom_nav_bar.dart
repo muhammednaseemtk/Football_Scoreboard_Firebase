@@ -5,6 +5,7 @@ import 'package:football_scoreboard/constant/app_color.dart';
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
+
   const BottomNavBar({
     super.key,
     required this.currentIndex,
@@ -22,13 +23,20 @@ class BottomNavBar extends StatelessWidget {
       unselectedItemColor: AppColor.shaded,
       onTap: onTap,
       items: [
+
         BottomNavigationBarItem(
           icon: Icon(EneftyIcons.house_2_outline),
           label: 'Home',
         ),
+
         BottomNavigationBarItem(
-          icon: Icon(Icons.explore_outlined),
+          icon: Icon(Icons.emoji_events_outlined),
           label: 'League',
+        ),
+
+         BottomNavigationBarItem(
+          icon: Icon(EneftyIcons.user_octagon_bold),
+          label: 'Profile',
         ),
       ],
     );

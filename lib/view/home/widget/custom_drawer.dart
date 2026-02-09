@@ -8,6 +8,8 @@ import 'package:football_scoreboard/service/auth_service.dart';
 import 'package:football_scoreboard/view/auth/login_screen.dart';
 import 'package:football_scoreboard/view/home/widget/drawer_items.dart';
 import 'package:football_scoreboard/view/notification/notification_screen.dart';
+import 'package:football_scoreboard/view/profile/profile_screen.dart';
+import 'package:football_scoreboard/view/settings/settings_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -45,7 +47,12 @@ class CustomDrawer extends StatelessWidget {
           DrawerItems(
             icon: EneftyIcons.user_octagon_outline,
             title: 'Profile',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
+            },
           ),
 
           DrawerItems(
@@ -68,7 +75,12 @@ class CustomDrawer extends StatelessWidget {
           DrawerItems(
             icon: EneftyIcons.setting_outline,
             title: 'Settings',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => SettingsScreen()),
+              );
+            },
           ),
 
           DrawerItems(

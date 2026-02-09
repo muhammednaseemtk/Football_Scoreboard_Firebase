@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,12 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.darkGrey,
         foregroundColor: AppColor.white,
-        title: Text('Notification',style: AppFontFamily.txt1,),
+        title: Text('Profile',style: AppFontFamily.txt1,),
         centerTitle: true,
+      ),
+
+      body: Column(
+        children: [],
       ),
     );
   }

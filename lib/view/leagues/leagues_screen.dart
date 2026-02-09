@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
+import 'package:football_scoreboard/controller/league_controller.dart';
+import 'package:football_scoreboard/view/leagues/add_league.dart';
+import 'package:football_scoreboard/view/leagues/widget/league_card.dart';
+import 'package:provider/provider.dart';
 
 class LeaguesScreen extends StatelessWidget {
   const LeaguesScreen({super.key});
@@ -17,16 +21,56 @@ class LeaguesScreen extends StatelessWidget {
         centerTitle: true,
       ),
 
-      body: Column(children: [
-        ],
+      body: Consumer<LeagueController>(
+        builder: (context, controller, child) {
+          return FutureBuilder(
+            future: controller.leagueMaches,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(color: AppColor.accentGreen),
+                );
+              }
+
+              if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(
+                  child: Text(
+                    'No Leagues',
+                    style: TextStyle(color: AppColor.white),
+                  ),
+                );
+              }
+
+              final leagues = snapshot.data!;
+
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15
+                ),
+                itemCount: leagues.length,
+                itemBuilder: (context, index) {
+                  return LeagueCard(model: leagues[index]);
+                },
+              );
+            },
+          );
+        },
       ),
 
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
         child: FloatingActionButton(
+          heroTag: 'Add League',
           backgroundColor: AppColor.accentGreen,
           foregroundColor: AppColor.white,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AddLeague()),
+            );
+          },
           child: Icon(Icons.add, size: 30),
         ),
       ),

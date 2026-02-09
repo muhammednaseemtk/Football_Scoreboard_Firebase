@@ -7,5 +7,7 @@ class AppColor {
   static const Color shaded = Colors.grey;
   static const Color black20 = Color(0x33000000);
   static const Color black70 = Color(0xB3000000);
+  static const Color black60 = Color(0x99000000);
+  static const Color black90 = Color(0xE6000000);
   static const Color shadow = Color(0xFF212322);
 }

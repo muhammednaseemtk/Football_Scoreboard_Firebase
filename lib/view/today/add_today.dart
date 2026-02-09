@@ -21,7 +21,7 @@ class AddToday extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.darkGrey,
         foregroundColor: AppColor.white,
-        title: Text('Today', style: AppFontFamily.txt1),
+        title: Text('Add Today', style: AppFontFamily.txt1),
         centerTitle: true,
       ),
 

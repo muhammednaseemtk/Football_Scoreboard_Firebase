@@ -14,14 +14,19 @@ class TodayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(9.0),
+      padding: const EdgeInsets.all(10.0),
 
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: AppColor.shaded, width: 1),
           borderRadius: BorderRadius.circular(24),
-          color: AppColor.black20,
+          color: AppColor.black90,
+          boxShadow: [
+          BoxShadow(
+            color: AppColor.black60,
+            blurRadius: 20,
+          ),
+        ],
         ),
 
         child: Column(
