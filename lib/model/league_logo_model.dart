@@ -1,8 +1,8 @@
-class TeamModel {
+class LeagueLogoModel {
   final String? name;
   final String? logoUrl;
 
-  TeamModel({
+  LeagueLogoModel({
     this.name,
     this.logoUrl
   });

@@ -23,8 +23,8 @@ class LeagueCard extends StatelessWidget {
         boxShadow: [BoxShadow(color: AppColor.black60, blurRadius: 20)],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -48,7 +48,7 @@ class LeagueCard extends StatelessWidget {
                       }
                     },
                     icon: Icon(
-                      EneftyIcons.close_outline,
+                      EneftyIcons.close_circle_outline,
                       color: AppColor.accentGreen,
                     ),
                   );
@@ -57,7 +57,7 @@ class LeagueCard extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 15),
+          SizedBox(height: 15,),
 
           Text(
             model.name ?? '',
@@ -66,15 +66,7 @@ class LeagueCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
 
-
-          Text(
-            model.place ?? '',
-            style: AppFontFamily.txt3,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-
-          SizedBox(height: 20),
+          SizedBox(height: 15,),
 
           Container(
             width: 120,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/model/league_model.dart';
-import 'package:football_scoreboard/model/team_model.dart';
+import 'package:football_scoreboard/model/league_logo_model.dart';
 import 'package:football_scoreboard/service/league_service.dart';
 
 class LeagueController with ChangeNotifier {
   final LeagueService leagueService = LeagueService();
 
-  TeamModel? selectedTeam;
+  LeagueLogoModel? selectedTeam;
 
-  void setSelecTeam(TeamModel team) {
+  void setSelecTeam(LeagueLogoModel team) {
     selectedTeam = team;
     notifyListeners();
   }

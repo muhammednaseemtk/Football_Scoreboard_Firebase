@@ -1,29 +1,37 @@
 class UpcomingModel {
   final String? id;
-  final String? teamA;
-  final String? teamB;
+  final String? teamALogo;
+  final String? teamAName;
+  final String? teamBLogo;
+  final String? teamBName;
   final String? time;
 
   UpcomingModel({
     this.id,
-    this.teamA,
-    this.teamB,
+    this.teamALogo,
+    this.teamAName,
+    this.teamBLogo,
+    this.teamBName,
     this.time
   });
 
   factory UpcomingModel.fromMap(Map<String,dynamic> map,String id) {
     return UpcomingModel(
       id: id,
-      teamA: map['teamA'],
-      teamB: map['teamB'],
+      teamALogo: map['teamALogo'],
+      teamAName: map['teamAName'],
+      teamBLogo: map['teamBLogo'],
+      teamBName: map['teamBName'],
       time: map['time']
     );
   } 
 
   Map<String,dynamic> toMap() {
     return {
-      'teamA' : teamA,
-      'teamB' : teamB,
+      'teamALogo' : teamALogo,
+      'teamAName' : teamAName,
+      'teamBLogo' : teamBLogo,
+      'teamBName' : teamBName,
       'time' : time
     };
   }

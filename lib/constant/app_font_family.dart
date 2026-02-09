@@ -35,17 +35,17 @@ class AppFontFamily {
   static final TextStyle email = GoogleFonts.outfit(
     color: AppColor.white,
     fontWeight: FontWeight.bold,
-    fontSize: 15
+    fontSize: 15,
   );
 
   static final TextStyle name = GoogleFonts.poppins(
     color: AppColor.white,
-    fontWeight: FontWeight.w500
+    fontWeight: FontWeight.w500,
   );
 
   static final TextStyle txt1 = GoogleFonts.outfit(
     color: AppColor.white,
-    fontSize: 28
+    fontSize: 28,
   );
 
   static final TextStyle txt2 = GoogleFonts.outfit(
@@ -53,11 +53,20 @@ class AppFontFamily {
     fontSize: 25,
   );
 
-  static final TextStyle txt3 = GoogleFonts.poppins(color: AppColor.shaded,fontSize: 13);
+  static final TextStyle txt3 = GoogleFonts.poppins(
+    color: AppColor.shaded,
+    fontSize: 13,
+  );
 
   static final TextStyle txt4 = GoogleFonts.bebasNeue(
     letterSpacing: 1,
     color: AppColor.white,
-    fontSize: 20
+    fontSize: 20,
+  );
+
+  static final TextStyle txt5 = GoogleFonts.poppins(
+    color: AppColor.shaded,
+    fontSize: 10,
+    fontWeight: FontWeight.bold,
   );
 }

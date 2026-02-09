@@ -35,7 +35,7 @@ class BottomNavBar extends StatelessWidget {
         ),
 
          BottomNavigationBarItem(
-          icon: Icon(EneftyIcons.user_octagon_bold),
+          icon: Icon(EneftyIcons.user_octagon_outline),
           label: 'Profile',
         ),
       ],

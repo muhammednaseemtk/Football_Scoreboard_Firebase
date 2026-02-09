@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/common/common_button.dart';
-import 'package:football_scoreboard/common/common_textfield.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
-import 'package:football_scoreboard/constant/team_data.dart';
+import 'package:football_scoreboard/constant/league_logo.dart';
 import 'package:football_scoreboard/controller/league_controller.dart';
 import 'package:football_scoreboard/model/league_model.dart';
-import 'package:football_scoreboard/model/team_model.dart';
+import 'package:football_scoreboard/model/league_logo_model.dart';
 import 'package:provider/provider.dart';
 
 class AddLeague extends StatefulWidget {
@@ -17,11 +16,10 @@ class AddLeague extends StatefulWidget {
 }
 
 class _AddLeagueState extends State<AddLeague> {
-  final TextEditingController placeController = TextEditingController();
 
   final TextEditingController teamNameController = TextEditingController();
 
-  TeamModel? selectedTeam;
+  LeagueLogoModel? selectedTeam;
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +46,12 @@ class _AddLeagueState extends State<AddLeague> {
                 ),
                 child: Consumer<LeagueController>(
                   builder: (context, controller, child) {
-                    return DropdownButtonFormField<TeamModel>(
+                    return DropdownButtonFormField<LeagueLogoModel>(
                       value: controller.selectedTeam,
                       dropdownColor: AppColor.black70,
                       decoration: InputDecoration(
-                        hintText: 'Select Team',
-                        hintStyle: AppFontFamily.txtField,
+                        labelText: 'Select Team',
+                        labelStyle: AppFontFamily.txtField,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color: AppColor.accentGreen),
@@ -63,8 +61,8 @@ class _AddLeagueState extends State<AddLeague> {
                           borderSide: BorderSide(color: AppColor.accentGreen),
                         ),
                       ),
-                      items: teamList.map((team) {
-                        return DropdownMenuItem<TeamModel>(
+                      items: leagueList.map((team) {
+                        return DropdownMenuItem<LeagueLogoModel>(
                           value: team,
                           child: Row(
                             children: [
@@ -93,13 +91,7 @@ class _AddLeagueState extends State<AddLeague> {
                 ),
               ),
 
-              SizedBox(height: 10),
-
-              CommonTextfield(
-                txt: 'Place',
-                controller: placeController,
-                obsecureTxt: false,
-              ),
+              
             ],
           ),
           Column(
@@ -110,7 +102,6 @@ class _AddLeagueState extends State<AddLeague> {
                     onPressed: () async {
                       final model = LeagueModel(
                         name: teamNameController.text.trim(),
-                        place: placeController.text.trim(),
                         imageUrl: controller.selectedTeam?.logoUrl,
                       );
 

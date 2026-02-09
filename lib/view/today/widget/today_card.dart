@@ -21,12 +21,7 @@ class TodayCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           color: AppColor.black90,
-          boxShadow: [
-          BoxShadow(
-            color: AppColor.black60,
-            blurRadius: 20,
-          ),
-        ],
+          boxShadow: [BoxShadow(color: AppColor.black60, blurRadius: 20)],
         ),
 
         child: Column(
@@ -65,7 +60,7 @@ class TodayCard extends StatelessWidget {
                         }
                       },
                       icon: Icon(
-                        EneftyIcons.close_outline,
+                        EneftyIcons.close_circle_outline,
                         color: AppColor.accentGreen,
                       ),
                     );
@@ -81,15 +76,21 @@ class TodayCard extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CircleAvatar(
-                      radius: 34,
-                      backgroundColor: AppColor.accentGreen,
-                      child: Icon(Icons.sports_soccer_sharp,color: AppColor.white,),
+                    Image.network(
+                      model.teamALogo ?? '',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
                     ),
 
                     SizedBox(height: 12),
 
-                    Text(model.teamA ?? '', style: AppFontFamily.name),
+                    Text(
+                      model.teamAName ?? '',
+                      style: AppFontFamily.txt5,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
                   ],
                 ),
 
@@ -112,15 +113,21 @@ class TodayCard extends StatelessWidget {
 
                 Column(
                   children: [
-                    CircleAvatar(
-                      radius: 34,
-                      backgroundColor: AppColor.accentGreen,
-                      child: Icon(Icons.sports_soccer_sharp,color: AppColor.white,),
+                    Image.network(
+                      model.teamBLogo ?? '',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
                     ),
 
                     SizedBox(height: 12),
 
-                    Text(model.teamB ?? '', style: AppFontFamily.name),
+                    Text(
+                      model.teamBName ?? '',
+                      style: AppFontFamily.txt5,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
                   ],
                 ),
               ],
