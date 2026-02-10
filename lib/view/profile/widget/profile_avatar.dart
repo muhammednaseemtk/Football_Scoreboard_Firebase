@@ -1,33 +1,25 @@
 import 'package:enefty_icons/enefty_icons.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
+import 'package:football_scoreboard/constant/app_font_family.dart';
 
 class ProProfileAvatar extends StatelessWidget {
-  final String name;
-  final String subtitle;
-  final ImageProvider image;
-  final VoidCallback? onEditTap;
+  final user = FirebaseAuth.instance.currentUser;
 
-  const ProProfileAvatar({
-    super.key,
-    required this.name,
-    required this.subtitle,
-    required this.image,
-    this.onEditTap,
-  });
+  ProProfileAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(height: 20,),
+        SizedBox(height: 20),
 
         Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.center,
           children: [
-
             Container(
               width: 120,
               height: 120,
@@ -47,40 +39,32 @@ class ProProfileAvatar extends StatelessWidget {
             Container(
               width: 120,
               height: 120,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
+              decoration: BoxDecoration(shape: BoxShape.circle),
               padding: const EdgeInsets.all(6),
               child: CircleAvatar(
-                child: Icon(EneftyIcons.user_outline,color: AppColor.white,size: 55,),
                 backgroundColor: Colors.transparent,
+                child: Icon(
+                  EneftyIcons.user_outline,
+                  color: AppColor.white,
+                  size: 55,
+                ),
               ),
             ),
           ],
         ),
 
-         SizedBox(height: 18),
+        SizedBox(height: 20),
 
         Text(
-          name.toUpperCase(),
-          style:  TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.4,
-          ),
+          user?.displayName ?? 'Football Fan',
+          style: AppFontFamily.name1,
         ),
 
-         SizedBox(height: 6),
+        SizedBox(height: 8),
 
         Text(
-          subtitle.toUpperCase(),
-          style: TextStyle(
-            color: AppColor.accentGreen,
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-            letterSpacing: 2,
-          ),
+          user?.email ?? 'guest@gmail.com',
+          style: AppFontFamily.email1,
         ),
       ],
     );

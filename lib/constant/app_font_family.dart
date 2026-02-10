@@ -38,9 +38,21 @@ class AppFontFamily {
     fontSize: 15,
   );
 
+  static final TextStyle email1 = GoogleFonts.outfit(
+    color: AppColor.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 18,
+  );
+
   static final TextStyle name = GoogleFonts.poppins(
     color: AppColor.white,
     fontWeight: FontWeight.w500,
+  );
+
+  static final TextStyle name1 = GoogleFonts.poppins(
+    color: AppColor.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 25
   );
 
   static final TextStyle txt1 = GoogleFonts.outfit(

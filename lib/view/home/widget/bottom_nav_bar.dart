@@ -34,9 +34,9 @@ class BottomNavBar extends StatelessWidget {
           label: 'League',
         ),
 
-         BottomNavigationBarItem(
-          icon: Icon(EneftyIcons.user_octagon_outline),
-          label: 'Profile',
+        BottomNavigationBarItem(
+          icon: Icon(EneftyIcons.setting_outline),
+          label: 'Settings',
         ),
       ],
     );

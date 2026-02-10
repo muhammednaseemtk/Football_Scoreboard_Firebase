@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/controller/league_controller.dart';
 import 'package:football_scoreboard/controller/main_screen_controller.dart';
+import 'package:football_scoreboard/controller/theme_controller.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
 import 'package:football_scoreboard/controller/user_controller.dart';
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainScreen(),

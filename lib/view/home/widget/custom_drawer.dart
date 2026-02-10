@@ -67,12 +67,6 @@ class CustomDrawer extends StatelessWidget {
           ),
 
           DrawerItems(
-            icon: EneftyIcons.star_outline,
-            title: 'Favourite',
-            onPressed: () {},
-          ),
-
-          DrawerItems(
             icon: EneftyIcons.setting_outline,
             title: 'Settings',
             onPressed: () {
