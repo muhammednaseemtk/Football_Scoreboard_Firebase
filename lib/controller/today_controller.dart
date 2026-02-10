@@ -38,7 +38,6 @@ class TodayController with ChangeNotifier {
     await todayService.addTodayMatch(model);
     clearSelectedTeamA();
     clearSelectedTeamB();
-    notifyListeners();
   }
 
   Future<void> deleteTodayMatch(String id) async {

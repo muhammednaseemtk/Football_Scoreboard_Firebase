@@ -46,7 +46,7 @@ class AddToday extends StatelessWidget {
                       value: controller.selectedTeamA,
                       dropdownColor: AppColor.darkGrey,
                       decoration: InputDecoration(
-                        labelText: 'Select Team',
+                        labelText: 'Select TeamA',
                         labelStyle: AppFontFamily.txtField,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -100,7 +100,7 @@ class AddToday extends StatelessWidget {
                       value: controller.selectedTeamB,
                       dropdownColor: AppColor.black70,
                       decoration: InputDecoration(
-                        labelText: 'Select Team',
+                        labelText: 'Select TeamB',
                         labelStyle: AppFontFamily.txtField,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),

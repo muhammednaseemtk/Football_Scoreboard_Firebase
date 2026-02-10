@@ -15,15 +15,18 @@ class TodayCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           color: AppColor.black90,
-          boxShadow: [BoxShadow(color: AppColor.black60, blurRadius: 20)],
+          boxShadow: [
+            BoxShadow(
+              color: AppColor.black60,
+              blurRadius: 20,
+            ),
+          ],
         ),
-
         child: Column(
           children: [
             Row(
@@ -47,8 +50,10 @@ class TodayCard extends StatelessWidget {
                     color: AppColor.shaded,
                     borderRadius: BorderRadius.circular(20),
                   ),
-
-                  child: Text('Today', style: AppFontFamily.name),
+                  child: Text(
+                    'Today',
+                    style: AppFontFamily.name,
+                  ),
                 ),
 
                 Consumer<TodayController>(
@@ -69,39 +74,48 @@ class TodayCard extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 24),
+             SizedBox(height: 24),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.network(
                       model.teamALogo ?? '',
                       width: 50,
                       height: 50,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
 
-                    SizedBox(height: 12),
+                     SizedBox(height: 12),
 
-                    Text(
-                      model.teamAName ?? '',
-                      style: AppFontFamily.txt5,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
+                    SizedBox(
+                      width: 90,
+                      child: Text(
+                        model.teamAName ?? '',
+                        style: AppFontFamily.txt5,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
                     ),
                   ],
                 ),
 
                 Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(model.time ?? '', style: AppFontFamily.txt2),
+                    Text(
+                      model.time ?? '',
+                      style: AppFontFamily.txt2,
+                    ),
 
-                    SizedBox(height: 6),
+                     SizedBox(height: 6),
 
                     Text(
-                      "KICKOFF",
+                      'KICKOFF',
                       style: TextStyle(
                         color: AppColor.shaded,
                         fontSize: 12,
@@ -112,21 +126,26 @@ class TodayCard extends StatelessWidget {
                 ),
 
                 Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.network(
                       model.teamBLogo ?? '',
                       width: 50,
                       height: 50,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
 
-                    SizedBox(height: 12),
+                     SizedBox(height: 12),
 
-                    Text(
-                      model.teamBName ?? '',
-                      style: AppFontFamily.txt5,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
+                    SizedBox(
+                      width: 90,
+                      child: Text(
+                        model.teamBName ?? '',
+                        style: AppFontFamily.txt5,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
                     ),
                   ],
                 ),

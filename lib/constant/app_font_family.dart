@@ -61,11 +61,11 @@ class AppFontFamily {
   static final TextStyle txt4 = GoogleFonts.bebasNeue(
     letterSpacing: 1,
     color: AppColor.white,
-    fontSize: 20,
+    fontSize: 13,
   );
 
   static final TextStyle txt5 = GoogleFonts.poppins(
-    color: AppColor.shaded,
+    color: AppColor.white,
     fontSize: 10,
     fontWeight: FontWeight.bold,
   );

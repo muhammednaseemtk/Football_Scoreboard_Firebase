@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   static const Color accentGreen = Color(0xFF1D9D4C);
+  static const Color accentColorShadow = Color(0xCC4CAF50);
   static const Color darkGrey = Color(0xFF181B19);
   static const Color white = Color(0xFFFCFCFC);
   static const Color shaded = Colors.grey;
