@@ -29,7 +29,7 @@ class UpcomingController with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<UpcomingModel>> get upcomingMaches {
+  Stream<List<UpcomingModel>> get upcomingMaches {
     return upcomingService.getUpcomingMatch();
   }
 

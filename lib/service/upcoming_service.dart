@@ -4,13 +4,13 @@ import 'package:football_scoreboard/model/upcoming_model.dart';
 class UpcomingService {
   final FirebaseFirestore today = FirebaseFirestore.instance;
 
-  Future<List<UpcomingModel>> getUpcomingMatch() async {
-    final snapshot = await today.collection('upcomingMatches').get();
-
-    return snapshot.docs.map((doc) {
-      return UpcomingModel.fromMap(doc.data(),doc.id);
+  Stream<List<UpcomingModel>> getUpcomingMatch() {
+  return today.collection('upcomingMatches').snapshots().map((snapshot) {
+    return snapshot.docs.map((docs) {
+      return UpcomingModel.fromMap(docs.data(), docs.id);
     }).toList();
-  }
+  });
+ }
 
   Future<void> addUpcomingMatch(UpcomingModel model) async {
     await today.collection('upcomingMatches').add(model.toMap());

@@ -73,12 +73,18 @@ class AppFontFamily {
   static final TextStyle txt4 = GoogleFonts.bebasNeue(
     letterSpacing: 1,
     color: AppColor.white,
-    fontSize: 13,
+    fontSize: 16,
   );
 
   static final TextStyle txt5 = GoogleFonts.poppins(
     color: AppColor.white,
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
+  );
+
+  static final TextStyle txt6 = GoogleFonts.outfit(
+    color: AppColor.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 22,
   );
 }

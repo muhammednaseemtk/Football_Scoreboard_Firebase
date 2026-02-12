@@ -18,7 +18,7 @@ class LeagueController with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<LeagueModel>> get leagueMaches {
+  Stream<List<LeagueModel>> get leagueMaches {
     return leagueService.getLeague();
   }
 

@@ -15,12 +15,14 @@ class TodayScreen extends StatelessWidget {
 
       body: Consumer<TodayController>(
         builder: (context, controller, child) {
-          return FutureBuilder(
-            future: controller.todayMaches,
+          return StreamBuilder(
+            stream: controller.todayMaches,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: CircularProgressIndicator(color: AppColor.accentGreen),
+                  child: CircularProgressIndicator(
+                    color: AppColor.accentGreen,
+                  ),
                 );
               }
 
@@ -49,7 +51,6 @@ class TodayScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
         child: FloatingActionButton(
-          heroTag: 'Add Today Match',
           backgroundColor: AppColor.accentGreen,
           onPressed: () {
             Navigator.push(
@@ -57,7 +58,7 @@ class TodayScreen extends StatelessWidget {
               MaterialPageRoute(builder: (_) => AddToday()),
             );
           },
-          child: Icon(Icons.add, size: 30, color: AppColor.white),
+          child: Icon(Icons.add, color: AppColor.white),
         ),
       ),
     );

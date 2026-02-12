@@ -30,7 +30,7 @@ class TodayController with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<TodayModel>> get todayMaches {
+  Stream<List<TodayModel>> get todayMaches {
     return todayService.getTodayMatch();
   }
 

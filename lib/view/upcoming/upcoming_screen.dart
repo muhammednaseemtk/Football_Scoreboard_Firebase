@@ -17,8 +17,8 @@ class UpcomingScreen extends StatelessWidget {
 
       body: Consumer<UpcomingController>(
         builder: (context, controller, child) {
-          return FutureBuilder(
-            future: controller.upcomingMaches,
+          return StreamBuilder(
+            stream: controller.upcomingMaches,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(

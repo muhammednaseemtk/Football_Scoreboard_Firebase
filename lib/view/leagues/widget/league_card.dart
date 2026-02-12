@@ -57,7 +57,7 @@ class LeagueCard extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 15,),
+          SizedBox(height: 20,),
 
           Text(
             model.name ?? '',
@@ -66,7 +66,7 @@ class LeagueCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
 
-          SizedBox(height: 15,),
+          SizedBox(height: 25,),
 
           Container(
             width: 120,

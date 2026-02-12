@@ -35,8 +35,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       backgroundColor: AppColor.darkGrey,
 
@@ -81,16 +79,61 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
+
       body: Column(
         children: [
           SizedBox(height: 10),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 70),
-            child: Text('Football Scores', style: AppFontFamily.txt1),
-          ),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Stack(
+              children: [
+                Container(
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    image: DecorationImage(
+                      image: AssetImage('asset/image/football.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
 
-          Text('Instant football score updates', style: AppFontFamily.txt),
+                Container(
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    color: AppColor.black20,
+                  ),
+                ),
+
+                Positioned.fill(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Football Scores',
+                        style: AppFontFamily.txt1.copyWith(
+                          color: AppColor.white,
+                        ),
+                      ),
+
+                      SizedBox(height: 4),
+
+                      Text(
+                        'Instant football score updates',
+                        style: AppFontFamily.txt.copyWith(
+                          color: AppColor.shaded,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
 
           SizedBox(height: 15),
 
@@ -104,10 +147,11 @@ class _HomeScreenState extends State<HomeScreen>
               Tab(text: 'Upcoming'),
             ],
           ),
+
           Expanded(
             child: TabBarView(
               controller: tabController,
-              children: const [TodayScreen(), UpcomingScreen()],
+              children: [TodayScreen(), UpcomingScreen()],
             ),
           ),
         ],

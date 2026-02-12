@@ -23,8 +23,8 @@ class LeaguesScreen extends StatelessWidget {
 
       body: Consumer<LeagueController>(
         builder: (context, controller, child) {
-          return FutureBuilder(
-            future: controller.leagueMaches,
+          return StreamBuilder(
+            stream: controller.leagueMaches,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
