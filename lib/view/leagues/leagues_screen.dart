@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
@@ -66,10 +67,14 @@ class LeaguesScreen extends StatelessWidget {
           backgroundColor: AppColor.accentGreen,
           foregroundColor: AppColor.white,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AddLeague()),
-            );
+           try {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => AddLeague()),
+              );
+            } catch (e, s) {
+              FirebaseCrashlytics.instance.recordError(e, s);
+            }
           },
           child: Icon(Icons.add, size: 30),
         ),

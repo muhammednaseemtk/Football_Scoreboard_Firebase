@@ -1,8 +1,7 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
-import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
-import 'package:football_scoreboard/view/today/widget/today_card.dart';
 import 'package:football_scoreboard/view/upcoming/add_upcoming.dart';
 import 'package:football_scoreboard/view/upcoming/widget/upcoming_card.dart';
 import 'package:provider/provider.dart';
@@ -54,10 +53,14 @@ class UpcomingScreen extends StatelessWidget {
           heroTag: 'Add Upcoming Match',
           backgroundColor: AppColor.accentGreen,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => AddUpcoming()),
-            );
+            try {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => AddUpcoming()),
+              );
+            } catch (e, s) {
+              FirebaseCrashlytics.instance.recordError(e, s);
+            }
           },
           child: Icon(Icons.add, size: 30, color: AppColor.white),
         ),

@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
@@ -53,10 +54,14 @@ class TodayScreen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: AppColor.accentGreen,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => AddToday()),
-            );
+            try {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => AddToday()),
+              );
+            } catch (e, s) {
+              FirebaseCrashlytics.instance.recordError(e, s);
+            }
           },
           child: Icon(Icons.add, color: AppColor.white),
         ),

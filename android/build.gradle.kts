@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.9")
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -15,6 +25,7 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
