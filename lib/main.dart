@@ -13,12 +13,12 @@ import 'package:football_scoreboard/service/notification_service.dart';
 import 'package:football_scoreboard/view/home/widget/main_screen.dart';
 import 'package:provider/provider.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(
       firebaseMessagingBackgroundHandler);
-
   
   await SimpleFCM.init();
 

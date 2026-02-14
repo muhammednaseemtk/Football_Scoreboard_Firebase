@@ -48,6 +48,8 @@ dependencies:
   firebase_crashlytics: ^5.0.7
   flutter_local_notifications: ^20.1.0
   timezone: ^0.10.1
+  android_intent_plus: ^6.0.0
+  device_info_plus: ^12.3.0
 
 dev_dependencies:
   flutter_test:
