@@ -16,6 +16,12 @@ class NotificationScreen extends StatelessWidget {
         centerTitle: true,
       ),
       
+      body:  Center(
+        child: Text(
+          'Waiting for notifications...',
+          style: AppFontFamily.txt5
+        ),
+      ),
     );
   }
 }

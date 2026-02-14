@@ -9,6 +9,7 @@ class TodayController with ChangeNotifier {
   TeamALogoModel? selectedTeamA;
   TeamBLogoModel? selectedTeamB;
 
+  TimeOfDay? selectedTime;
 
   void setTeamA(TeamALogoModel teamA) {
     selectedTeamA = teamA;
@@ -30,7 +31,12 @@ class TodayController with ChangeNotifier {
     notifyListeners();
   }
 
-  Stream<List<TodayModel>> get todayMaches {
+  void clearSelectTime() {
+    selectedTime = null;
+    notifyListeners();
+  }
+
+Stream<List<TodayModel>> get todayMaches {
     return todayService.getTodayMatch();
   }
 

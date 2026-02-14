@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/common/common_button.dart';
 import 'package:football_scoreboard/common/common_textfield.dart';
@@ -8,14 +10,34 @@ import 'package:football_scoreboard/constant/team_b_logo.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
 import 'package:football_scoreboard/model/team_logo_model.dart';
 import 'package:football_scoreboard/model/today_model.dart';
+import 'package:football_scoreboard/service/notification_service.dart';
 import 'package:provider/provider.dart';
 
 class AddToday extends StatelessWidget {
+  AddToday({super.key});
   final TextEditingController teamAnameController = TextEditingController();
   final TextEditingController teamBnameController = TextEditingController();
   final TextEditingController timeController = TextEditingController();
 
-  AddToday({super.key});
+  TimeOfDay? selectedTime;
+
+  DateTime convertTimeOfDayToDateTime(TimeOfDay time) {
+    final now = DateTime.now();
+
+    DateTime scheduled = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      time.hour,
+      time.minute,
+    );
+
+    if (scheduled.isBefore(now)) {
+      scheduled = scheduled.add(const Duration(days: 1));
+    }
+
+    return scheduled;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +193,7 @@ class AddToday extends StatelessWidget {
                   );
 
                   if (pickedTime != null) {
+                    selectedTime = pickedTime;
                     timeController.text = pickedTime.format(context);
                   }
                 },
@@ -201,6 +224,24 @@ class AddToday extends StatelessWidget {
                       );
 
                       await controller.addTodayMatch(model);
+
+                      await SimpleFCM.showMatchNotification(
+                        teamA: model.teamAName!,
+                        teamB: model.teamBName!,
+                        time: model.time!,
+                      );
+
+                      final scheduledTime = convertTimeOfDayToDateTime(
+                        selectedTime!,
+                      );
+
+                      log('Notification schedulled: $scheduledTime');
+
+                      await SimpleFCM.scheduleMatchNotification(
+                        teamA: model.teamAName!,
+                        teamB: model.teamBName!,
+                        matchTime: scheduledTime,
+                      );
 
                       Navigator.pop(context);
                     },

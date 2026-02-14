@@ -8,6 +8,7 @@ import 'package:football_scoreboard/constant/team_b_logo.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
 import 'package:football_scoreboard/model/team_logo_model.dart';
 import 'package:football_scoreboard/model/upcoming_model.dart';
+import 'package:football_scoreboard/service/notification_service.dart';
 import 'package:provider/provider.dart';
 
 class AddUpcoming extends StatelessWidget {
@@ -201,6 +202,12 @@ class AddUpcoming extends StatelessWidget {
                       );
 
                       await controller.addUpcomingMatch(model);
+
+                      await SimpleFCM.showMatchNotification(
+                        teamA: model.teamAName!,
+                        teamB: model.teamBName!,
+                        time: model.time!,
+                      );
 
                       Navigator.pop(context);
                     },
