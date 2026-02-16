@@ -5,16 +5,20 @@ import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/constant/team_a_logo.dart';
 import 'package:football_scoreboard/constant/team_b_logo.dart';
+import 'package:football_scoreboard/controller/notification_controller.dart';
 import 'package:football_scoreboard/controller/upcoming_controller.dart';
+import 'package:football_scoreboard/model/notification_model.dart';
 import 'package:football_scoreboard/model/team_logo_model.dart';
 import 'package:football_scoreboard/model/upcoming_model.dart';
-import 'package:football_scoreboard/service/notification_service.dart';
+import 'package:football_scoreboard/service/simple_fcm.dart';
 import 'package:provider/provider.dart';
 
 class AddUpcoming extends StatelessWidget {
   final TextEditingController teamAnameController = TextEditingController();
   final TextEditingController teamBnameController = TextEditingController();
   final TextEditingController timeController = TextEditingController();
+
+  TimeOfDay? selectedTime;
 
   AddUpcoming({super.key});
 
@@ -172,6 +176,7 @@ class AddUpcoming extends StatelessWidget {
                   );
 
                   if (pickedTime != null) {
+                    selectedTime = pickedTime;
                     timeController.text = pickedTime.format(context);
                   }
                 },
@@ -189,24 +194,34 @@ class AddUpcoming extends StatelessWidget {
           ),
           Column(
             children: [
-              Consumer<UpcomingController>(
-                builder: (context, controller, child) {
+              Consumer2<UpcomingController,NotificationController>(
+                builder: (context, upcomingController,notificationController, child) {
                   return CommonButton(
                     onPressed: () async {
+                      if (selectedTime == null) return;
+
                       final model = UpcomingModel(
-                        teamALogo: controller.selectedTeamA?.logoUrlA,
+                        teamALogo: upcomingController.selectedTeamA?.logoUrlA,
                         teamAName: teamAnameController.text.trim(),
-                        teamBLogo: controller.selectedTeamB?.logoUrlB,
+                        teamBLogo: upcomingController.selectedTeamB?.logoUrlB,
                         teamBName: teamBnameController.text.trim(),
                         time: timeController.text.trim(),
                       );
 
-                      await controller.addUpcomingMatch(model);
+                      await upcomingController.addUpcomingMatch(model);
 
                       await SimpleFCM.showMatchNotification(
                         teamA: model.teamAName!,
                         teamB: model.teamBName!,
                         time: model.time!,
+                      );
+
+                      notificationController.addNotification(
+                        NotificationModel(
+                          teamA: model.teamAName!,
+                          teamB: model.teamBName!,
+                          time: model.time!,
+                        ),
                       );
 
                       Navigator.pop(context);

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
+import 'package:football_scoreboard/controller/notification_controller.dart';
+import 'package:football_scoreboard/view/notification/widget/notification_card.dart';
+import 'package:provider/provider.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -12,15 +15,34 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.darkGrey,
         foregroundColor: AppColor.white,
-        title: Text('Notification',style: AppFontFamily.txt1,),
+        title: Text('Notification', style: AppFontFamily.txt1),
         centerTitle: true,
       ),
-      
-      body:  Center(
-        child: Text(
-          'Waiting for notifications...',
-          style: AppFontFamily.txt5
-        ),
+
+      body: Consumer<NotificationController>(
+        builder: (context, controller, child) {
+          if (controller.notifications.isEmpty) {
+            return Center(
+              child: Text(
+                'No notifications yet',
+                style: AppFontFamily.txt5,
+              ),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: controller.notifications.length,
+            itemBuilder: (context, index) {
+              final data = controller.notifications[index];
+
+              return NotificationCard(
+                teamA: data.teamA,
+                teamB: data.teamB,
+                time: data.time,
+              );
+            },
+          );
+        },
       ),
     );
   }

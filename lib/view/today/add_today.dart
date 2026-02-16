@@ -5,19 +5,19 @@ import 'package:football_scoreboard/constant/app_color.dart';
 import 'package:football_scoreboard/constant/app_font_family.dart';
 import 'package:football_scoreboard/constant/team_a_logo.dart';
 import 'package:football_scoreboard/constant/team_b_logo.dart';
+import 'package:football_scoreboard/controller/notification_controller.dart';
 import 'package:football_scoreboard/controller/today_controller.dart';
+import 'package:football_scoreboard/model/notification_model.dart';
 import 'package:football_scoreboard/model/team_logo_model.dart';
 import 'package:football_scoreboard/model/today_model.dart';
-import 'package:football_scoreboard/service/notification_service.dart';
+import 'package:football_scoreboard/service/simple_fcm.dart';
 import 'package:provider/provider.dart';
 
 class AddToday extends StatelessWidget {
   AddToday({super.key});
 
   final TextEditingController teamAnameController = TextEditingController();
-
   final TextEditingController teamBnameController = TextEditingController();
-
   final TextEditingController timeController = TextEditingController();
 
   TimeOfDay? selectedTime;
@@ -194,24 +194,54 @@ class AddToday extends StatelessWidget {
           ),
           Column(
             children: [
-              Consumer<TodayController>(
-                builder: (context, controller, child) {
+              Consumer2<TodayController, NotificationController>(
+                builder: (context, todayController, notificationController, child) {
                   return CommonButton(
                     onPressed: () async {
+                      if (selectedTime == null) return;
+
+                      final now = DateTime.now();
+
+                      final matchDateTime = DateTime(
+                        now.year,
+                        now.month,
+                        now.day,
+                        selectedTime!.hour,
+                        selectedTime!.minute,
+                      );
+
+                      final scheduledTime = matchDateTime.isBefore(now)
+                          ? matchDateTime.add(const Duration(days: 1))
+                          : matchDateTime;
+
                       final model = TodayModel(
-                        teamALogo: controller.selectedTeamA?.logoUrlA,
+                        teamALogo: todayController.selectedTeamA?.logoUrlA,
                         teamAName: teamAnameController.text.trim(),
-                        teamBLogo: controller.selectedTeamB?.logoUrlB,
+                        teamBLogo: todayController.selectedTeamB?.logoUrlB,
                         teamBName: teamBnameController.text.trim(),
                         time: timeController.text.trim(),
                       );
 
-                      await controller.addTodayMatch(model);
+                      await todayController.addTodayMatch(model);
 
                       await SimpleFCM.showMatchNotification(
                         teamA: model.teamAName!,
                         teamB: model.teamBName!,
                         time: model.time!,
+                      );
+
+                      await SimpleFCM.scheduleMatchNotification(
+    teamA: model.teamAName!,
+    teamB: model.teamBName!,
+    matchTime: scheduledTime,
+  );
+
+                      notificationController.addNotification(
+                        NotificationModel(
+                          teamA: model.teamAName!,
+                          teamB: model.teamBName!,
+                          time: model.time!,
+                        ),
                       );
 
                       Navigator.pop(context);
