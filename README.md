@@ -1,6 +1,27 @@
 # football_scoreboard
 
-A new Flutter project.
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/b519bef2-bece-4fbe-a2d0-ed3fa123049d"
+    alt="Profile screen"
+    width="200"
+  />
+  <img
+    src=""
+    alt=""
+    width="200"
+  />
+  <img
+    src=""
+    alt=""
+    width="200"
+  />
+  <img
+    src=""
+    alt=""
+    width="200"
+  />
+</p>
 
 ## Getting Started
 
