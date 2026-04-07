@@ -7,8 +7,8 @@
     width="200"
   />
   <img
-    src=""
-    alt=""
+    src="https://github.com/user-attachments/assets/8db7c76b-28de-427a-b9ec-c2b73c9af44c"
+    alt="Home screen"
     width="200"
   />
   <img
